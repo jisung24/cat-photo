@@ -4,7 +4,6 @@ export const request = async (id) => {
     const res = await fetch(`${API_END_POINT}${id}`)
     if (res.ok) {
       const data = await res.json()
-      console.log('받아온 데이터 >> ', data)
       return data
     }
   } catch (e) {

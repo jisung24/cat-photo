@@ -30,6 +30,7 @@
             "imports": "never",
             "exports": "never",
             "functions": "never"
-        }]
+        }],
+        "react/react-in-jsx-scope": "off"
     }
 }

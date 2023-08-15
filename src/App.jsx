@@ -8,6 +8,7 @@ export default function App() {
   const [currentFile, setCurrentFile] = useState('')
   const [breadcrumbs, setBreadcrumbs] = useState([{ id: '', name: 'root' }])
   const [loading, setLoading] = useState(false)
+
   // 디렉토리 클릭 시
   const enterNode = (id, name) => {
     setCurrentFile((prev) => id)
@@ -35,10 +36,10 @@ export default function App() {
   }
   // onClick시!!
   useEffect(() => {
-    setLoading((prev) => !prev)
+    setLoading((prev) => !prev) // 로딩중을 띄움
     const req = async () => {
       const res = await request(currentFile)
-      console.log(res)
+      setLoading((prev) => !prev) // 다 받아오면 로딩중을 없앤다
       setFileData(res)
     }
     req()
