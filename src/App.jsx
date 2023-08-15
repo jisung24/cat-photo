@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Breadcrumb from './components/Breadcrumb'
 import Nodes from './components/Nodes'
 import Loading from './components/Loading'
-
+import { request } from './api/catApi.js'
 export default function App() {
   const [fileData, setFileData] = useState([])
   const [currentFile, setCurrentFile] = useState('')
@@ -36,13 +36,12 @@ export default function App() {
   // onClick시!!
   useEffect(() => {
     setLoading((prev) => !prev)
-    fetch(`https://kdt-frontend.cat-api.programmers.co.kr/${currentFile}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setFileData((prev) => data)
-        // 받아온 새로운 file들로 채우는 것! => ❗️전 state는 남아있지 않음❗️
-        setLoading((prev) => !prev)
-      })
+    const req = async () => {
+      const res = await request(currentFile)
+      console.log(res)
+      setFileData(res)
+    }
+    req()
   }, [currentFile])
   return (
     <div>

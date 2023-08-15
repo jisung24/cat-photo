@@ -13,11 +13,16 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "prettier"
     ],
     "rules": {
-        "prettier/prettier": ["error", { "singleQuote": true, "semi": false }],
-        "space-before-function-paren": ["error", "never"],
+        "prettier/prettier": ["error", { "singleQuote": true, "semi": false, "space-before-function-paren": ["error", "never"]}],
+        "space-before-function-paren": ["error", {
+            "anonymous": "never",
+            "named": "never",
+            "asyncArrow": "always"
+          }],
         "react/prop-types" : "off",
         "comma-dangle": ["error", {
             "arrays": "never",
