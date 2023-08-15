@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// API호출 코드
 export const API_END_POINT = 'https://kdt-frontend.cat-api.programmers.co.kr/'
 export const request = async (id) => {
   try {
