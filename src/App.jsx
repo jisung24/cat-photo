@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Breadcrumb from './components/Breadcrumb'
 import Nodes from './components/Nodes'
 import Loading from './components/Loading'
-import { request } from './api/catApi.js'
+import { catService } from './service/catFileService'
+
 export default function App() {
   const [fileData, setFileData] = useState([])
   const [currentFile, setCurrentFile] = useState('')
@@ -37,7 +38,7 @@ export default function App() {
   useEffect(() => {
     setLoading((prev) => !prev) // 로딩중을 띄움
     const req = async () => {
-      const res = await request(currentFile)
+      const res = await catService.getNodes(currentFile)
       setLoading((prev) => !prev) // 다 받아오면 로딩중을 없앤다
       setFileData(res)
     }
