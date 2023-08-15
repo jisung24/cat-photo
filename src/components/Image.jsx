@@ -5,15 +5,21 @@ export default function Image({ filePath, onClick }) {
 
   return (
     <div
+      className="selectedImageBox"
       onKeyUp={window.addEventListener('keyup', (e) => {
         if (e.key === 'Escape') {
           onClick()
         }
       })}
     >
-      <span onClick={onClick}>❌</span>
-      <p>띄울 이미지 : {filePath}</p>
-      <img src={selectedImageUrl} alt="선택된 고양이 사진" />
+      <span onClick={onClick} className="selectedImageBox__closeBtn">
+        ❌
+      </span>
+      <img
+        src={selectedImageUrl}
+        className="selectedImageBox__image"
+        alt="선택된 고양이 사진"
+      />
     </div>
   )
 }

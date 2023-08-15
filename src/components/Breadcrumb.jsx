@@ -2,19 +2,18 @@ import React from 'react'
 
 export default function Breadcrumb({ breadcrumbs, moveSeclectedPath }) {
   return (
-    <div>
-      <p>
-        {breadcrumbs.map(({ id, name }) => (
-          <li
-            key={id}
-            onClick={(e) => {
-              moveSeclectedPath(id)
-            }}
-          >
-            {name}
-          </li>
-        ))}
-      </p>
-    </div>
+    <ul className="breadcrumb">
+      {breadcrumbs.map(({ id, name }) => (
+        <li
+          className="breadcrumb__item"
+          key={id}
+          onClick={(e) => {
+            moveSeclectedPath(id)
+          }}
+        >
+          {name}
+        </li>
+      ))}
+    </ul>
   )
 }

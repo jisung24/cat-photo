@@ -17,9 +17,10 @@ export default function Nodes({
   }
   return (
     <div>
-      <ul>
+      <ul className="nodeList">
         {breadcrumbsLength !== 1 && (
           <li
+            className="nodeList__prev"
             onClick={() => {
               goPrev()
             }}
@@ -32,6 +33,7 @@ export default function Nodes({
         )}
         {fileData.map(({ id, type, name, filePath, parent }) => (
           <li
+            className="nodeList__item"
             key={id}
             onClick={() => {
               if (type === 'DIRECTORY') {
@@ -41,8 +43,8 @@ export default function Nodes({
               }
             }}
           >
-            <h2>filename : {name}</h2>
-            <p>file or dic : {type}</p>
+            <h2 className="nodeList__item__fileName">filename : {name}</h2>
+            <p className="nodeList__item__fileType">file or dic : {type}</p>
             <p>부모 id : {parent && parent.id}</p>
             {filePath === 'FILE' && <p>{filePath}</p>}
           </li>
