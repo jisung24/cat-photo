@@ -33,7 +33,7 @@ export default function Nodes({
         )}
         {fileData.map(({ id, type, name, filePath, parent }) => (
           <li
-            className="nodeList__item"
+            className="nodeList__item nodeList__item--focused"
             key={id}
             onClick={() => {
               if (type === 'DIRECTORY') {
