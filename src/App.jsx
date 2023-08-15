@@ -34,7 +34,6 @@ export default function App() {
       return prev
     })
   }
-  // onClick시!!
   useEffect(() => {
     setLoading((prev) => !prev) // 로딩중을 띄움
     const req = async () => {

@@ -12,7 +12,7 @@ export default function Nodes({
   const [imageAction, setImageAction] = useState(false)
   const [filePath, setFilePath] = useState('') // filePath가 바뀔 때 마다... useEffect
   const fileClick = (filePath) => {
-    setImageAction((prev) => !prev)
+    setImageAction((prev) => true) // 무조건 열리는! => 계속 누르면 닫힐 수 있음 !prev로 해놓으면!
     setFilePath((prev) => filePath)
   }
   return (
@@ -50,7 +50,7 @@ export default function Nodes({
         ))}
         {imageAction && (
           <Image
-            onClick={() => setImageAction((prev) => !prev)}
+            onClick={() => setImageAction((prev) => false)}
             filePath={filePath}
           />
         )}
