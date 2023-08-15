@@ -6,7 +6,7 @@ export default function App() {
   const [fileData, setFileData] = useState([])
   const [currentFile, setCurrentFile] = useState('')
   const [breadcrumbs, setBreadcrumbs] = useState([{ id: '', name: 'root' }])
-  console.log('이번 >> ', breadcrumbs)
+
   // 디렉토리 클릭 시
   const enterNode = (id, name) => {
     setCurrentFile((prev) => id)
@@ -32,13 +32,11 @@ export default function App() {
       return prev
     })
   }
-
   // onClick시!!
   useEffect(() => {
     fetch(`https://kdt-frontend.cat-api.programmers.co.kr/${currentFile}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setFileData((prev) => data)
         // 받아온 새로운 file들로 채우는 것! => ❗️전 state는 남아있지 않음❗️
       })

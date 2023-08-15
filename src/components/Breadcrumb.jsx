@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function Breadcrumb({ breadcrumbs, moveSeclectedPath }) {
-  console.log(breadcrumbs)
   return (
     <div>
       <p>

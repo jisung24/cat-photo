@@ -5,7 +5,7 @@ export default function Nodes({
   fileData,
   directoryClick,
   breadcrumbsLength,
-  goPrev
+  goPrev,
   // trailing comma : 배열, obj등 콤마를 이용한 항목의 나열에서
   // 마지막 항목에도 콤마를 붙여주는 행위
 }) {
@@ -15,7 +15,6 @@ export default function Nodes({
     setImageAction((prev) => !prev)
     setFilePath((prev) => filePath)
   }
-
   return (
     <div>
       <ul>
