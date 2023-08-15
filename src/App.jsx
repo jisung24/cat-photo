@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Breadcrumb from './components/Breadcrumb'
 import Nodes from './components/Nodes'
+import Loading from './components/Loading'
 
 export default function App() {
   const [fileData, setFileData] = useState([])
   const [currentFile, setCurrentFile] = useState('')
   const [breadcrumbs, setBreadcrumbs] = useState([{ id: '', name: 'root' }])
-
+  const [loading, setLoading] = useState(false)
   // 디렉토리 클릭 시
   const enterNode = (id, name) => {
     setCurrentFile((prev) => id)
@@ -34,11 +35,13 @@ export default function App() {
   }
   // onClick시!!
   useEffect(() => {
+    setLoading((prev) => !prev)
     fetch(`https://kdt-frontend.cat-api.programmers.co.kr/${currentFile}`)
       .then((res) => res.json())
       .then((data) => {
         setFileData((prev) => data)
         // 받아온 새로운 file들로 채우는 것! => ❗️전 state는 남아있지 않음❗️
+        setLoading((prev) => !prev)
       })
   }, [currentFile])
   return (
@@ -51,6 +54,7 @@ export default function App() {
       </header>
 
       <main>
+        {loading && <Loading />}
         <Nodes
           fileData={fileData}
           goPrev={() => {
