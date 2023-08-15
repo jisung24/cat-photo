@@ -1,7 +1,7 @@
 import React from 'react'
-
+import { API_END_POINT } from '../api/catApi.js'
 export default function Image({ filePath, onClick }) {
-  const selectedImageUrl = `https://kdt-frontend.cat-api.programmers.co.kr/static${filePath}`
+  const selectedImageUrl = `${API_END_POINT}static${filePath}`
 
   return (
     <div

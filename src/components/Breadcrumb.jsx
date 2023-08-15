@@ -14,7 +14,6 @@ export default function Breadcrumb({ breadcrumbs, moveSeclectedPath }) {
             {name}
           </li>
         ))}
-        {/* // 브래드 크럼브도 list인데 id가 있어야지 그치..? */}
       </p>
     </div>
   )

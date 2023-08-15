@@ -10,7 +10,7 @@ export default function Nodes({
   // 마지막 항목에도 콤마를 붙여주는 행위
 }) {
   const [imageAction, setImageAction] = useState(false)
-  const [filePath, setFilePath] = useState('') // filePath가 바뀔 때 마다... useEffect
+  const [filePath, setFilePath] = useState('')
   const fileClick = (filePath) => {
     setImageAction((prev) => true) // 무조건 열리는! => 계속 누르면 닫힐 수 있음 !prev로 해놓으면!
     setFilePath((prev) => filePath)
@@ -35,7 +35,6 @@ export default function Nodes({
             key={id}
             onClick={() => {
               if (type === 'DIRECTORY') {
-                // 아 이름 수정
                 directoryClick(id, name)
               } else if (type === 'FILE') {
                 fileClick(filePath)
