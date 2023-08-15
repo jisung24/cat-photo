@@ -1,3 +1,73 @@
-body {
-  background-color: #f5f5f5;
+$width : 100vw;
+$height : 100vh;
+
+* {
+  margin : 0;
+  padding : 0;
+  box-sizing: border-box;
 }
+body{
+  width : $width;
+  height : $height;
+}
+li {
+  list-style: none;
+}
+
+// header 
+header {
+  $headerWidth : 100%;
+  width : $headerWidth;
+
+  .breadcrumb {
+    $padding : 20px;
+    display : flex;
+    padding : $padding;
+    &__item {
+      cursor : pointer;
+      border : 3px solid;
+      padding : $padding;
+    }
+  }
+}
+
+
+
+main {
+  border : 3px solid;
+  .nodeList {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    margin : {
+      left : 10px;
+      right : 12px;
+    }
+    &__prev {
+      padding : 10px;
+      &__img {
+        width : 100px;
+        height : 100px;
+      }
+    }
+  }
+
+  .loading {
+    $size : 50%;
+    position : absolute;
+    top : $size;
+    left : $size;
+    transform : translate($size * -1, $size * -1);
+    border : 3px solid black;
+
+    &--focus {
+      transform: scale(1.5);
+    }
+    &__waiting {
+      font-size : 2rem;
+    }
+  }
+}
+
+
+

@@ -16,46 +16,45 @@ export default function Nodes({
     setFilePath((prev) => filePath)
   }
   return (
-    <div>
-      <ul className="nodeList">
-        {breadcrumbsLength !== 1 && (
-          <li
-            className="nodeList__prev"
-            onClick={() => {
-              goPrev()
-            }}
-          >
-            <img
-              src="https://cdn.roto.codes/images/prev.png"
-              alt="뒤로가기 사진"
-            />
-          </li>
-        )}
-        {fileData.map(({ id, type, name, filePath, parent }) => (
-          <li
-            className="nodeList__item nodeList__item--focused"
-            key={id}
-            onClick={() => {
-              if (type === 'DIRECTORY') {
-                directoryClick(id, name)
-              } else if (type === 'FILE') {
-                fileClick(filePath)
-              }
-            }}
-          >
-            <h2 className="nodeList__item__fileName">filename : {name}</h2>
-            <p className="nodeList__item__fileType">file or dic : {type}</p>
-            <p>부모 id : {parent && parent.id}</p>
-            {filePath === 'FILE' && <p>{filePath}</p>}
-          </li>
-        ))}
-        {imageAction && (
-          <Image
-            onClick={() => setImageAction((prev) => false)}
-            filePath={filePath}
+    <ul className="nodeList">
+      {breadcrumbsLength !== 1 && (
+        <li
+          className="nodeList__prev"
+          onClick={() => {
+            goPrev()
+          }}
+        >
+          <img
+            src="https://cdn.roto.codes/images/prev.png"
+            alt="뒤로가기 사진"
+            className="nodeList__prev__img"
           />
-        )}
-      </ul>
-    </div>
+        </li>
+      )}
+      {fileData.map(({ id, type, name, filePath, parent }) => (
+        <li
+          className="nodeList__item nodeList__item--focused"
+          key={id}
+          onClick={() => {
+            if (type === 'DIRECTORY') {
+              directoryClick(id, name)
+            } else if (type === 'FILE') {
+              fileClick(filePath)
+            }
+          }}
+        >
+          <h2 className="nodeList__item__fileName">filename : {name}</h2>
+          <p className="nodeList__item__fileType">file or dic : {type}</p>
+          <p>부모 id : {parent && parent.id}</p>
+          {filePath === 'FILE' && <p>{filePath}</p>}
+        </li>
+      ))}
+      {imageAction && (
+        <Image
+          onClick={() => setImageAction((prev) => false)}
+          filePath={filePath}
+        />
+      )}
+    </ul>
   )
 }
