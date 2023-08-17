@@ -9,6 +9,7 @@
         "plugin:react/recommended"
     ],
     "parserOptions": {
+        "parser": "babel-parser",       
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
