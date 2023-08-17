@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Image from './Image'
-
+import prevImage from '../assets/image/prev.png'
+import fileImage from '../assets/image/file.png'
+import directoryImage from '../assets/image/directory.png'
 export default function Nodes({
   fileData,
   directoryClick,
@@ -25,9 +27,10 @@ export default function Nodes({
           }}
         >
           <img
-            src="https://cdn.roto.codes/images/prev.png"
+            src={prevImage}
             alt="뒤로가기 사진"
             className="nodeList__prev__img"
+            style={{ width: '100px', height: '100px' }}
           />
         </li>
       )}
@@ -43,9 +46,13 @@ export default function Nodes({
             }
           }}
         >
-          <h2 className="nodeList__item__fileName">filename : {name}</h2>
+          <img
+            src={type === 'DIRECTORY' ? directoryImage : fileImage}
+            alt=""
+            style={{ width: '150px', height: '150px' }}
+          />
+          <p className="nodeList__item__fileName">{name}</p>
           <p className="nodeList__item__fileType">file or dic : {type}</p>
-          <p>부모 id : {parent && parent.id}</p>
           {filePath === 'FILE' && <p>{filePath}</p>}
         </li>
       ))}
