@@ -1,4 +1,5 @@
 import React from 'react'
+import Span from './atoms/Span'
 
 export default function Breadcrumb({ breadcrumbs, moveSeclectedPath }) {
   return (
@@ -11,7 +12,7 @@ export default function Breadcrumb({ breadcrumbs, moveSeclectedPath }) {
             moveSeclectedPath(id)
           }}
         >
-          {name}
+          <Span text={name} />
         </li>
       ))}
     </ul>
