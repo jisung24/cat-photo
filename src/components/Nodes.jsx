@@ -49,7 +49,7 @@ export default function Nodes({
           <img
             src={type === 'DIRECTORY' ? directoryImage : fileImage}
             alt=""
-            style={{ width: '150px', height: '150px' }}
+            style={{ width: '150px', height: '150px', cursor: 'pointer' }}
           />
           <p className="nodeList__item__fileName">{name}</p>
           <p className="nodeList__item__fileType">file or dic : {type}</p>
