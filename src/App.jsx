@@ -1,6 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react'
-
-// css
 import './style/App.scss'
 import Breadcrumb from './components/Breadcrumb'
 import Nodes from './components/Nodes'
