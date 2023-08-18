@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Image from './Image'
 import prevImage from '../assets/image/prev.png'
 import fileImage from '../assets/image/file.png'
@@ -13,10 +13,11 @@ export default function Nodes({
 }) {
   const [imageAction, setImageAction] = useState(false)
   const [filePath, setFilePath] = useState('')
-  const fileClick = (filePath) => {
+  const fileClick = useCallback((filePath) => {
     setImageAction((prev) => true) // 무조건 열리는! => 계속 누르면 닫힐 수 있음 !prev로 해놓으면!
     setFilePath((prev) => filePath)
-  }
+  }, [])
+
   return (
     <ul className="nodeList">
       {breadcrumbsLength !== 1 && (
